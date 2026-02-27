@@ -42,16 +42,12 @@ CREATE TABLE IF NOT EXISTS vendas (
 );
 
 
-
-select * from clientes;
-
 CREATE TABLE IF NOT EXISTS clientes (
     id_cliente INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
     telefone VARCHAR(20) NOT NULL
 );
 
-ALTER TABLE clientes MODIFY cpf VARCHAR(20) NULL;
 
 INSERT IGNORE INTO pecas (nome, descricao, preco, preco_custo, quantidade) VALUES 
 ('Filtro de Cabine BYD Song Plus', 'Filtro de ar-condicionado', 120.00, 45.00, 10),
@@ -59,3 +55,9 @@ INSERT IGNORE INTO pecas (nome, descricao, preco, preco_custo, quantidade) VALUE
 ('Fluido de Arrefecimento de Bateria EV', 'Líquido térmico 1L', 95.00, 40.00, 20),
 ('Palhetas Limpa Pára-brisas BYD Seal', 'Par de palhetas silicone', 180.00, 60.00, 8),
 ('Bateria 12V Auxiliar Moura', 'Bateria para sistemas internos EV', 550.00, 320.00, 3);
+
+INSERT INTO clientes (nome, telefone) VALUES
+('PG Autoparts Brazil', '(11) 34522-1517'),
+('BR AutoParts', '(13) 43621-8521'),
+('PPL Distribuidora', '(11) 43254-8452'),
+('SK Automotive', '(35) 34646-4231');
