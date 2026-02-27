@@ -23,12 +23,10 @@ if(isset($_POST['vender'])){
     if($peca['quantidade'] < $quantidade){
         echo "<script>alert('Estoque insuficiente!');</script>";
     } else {
-
-        $stmt = $conn->prepare("INSERT INTO vendas (id_peca, id_cliente, data_venda) VALUES (?, ?, ?)");
-        $stmt->bind_param("iis", $id_peca, $id_cliente, $data);
+        $stmt = $conn->prepare("INSERT INTO vendas (id_peca, id_cliente, quantidade, data_venda) VALUES (?, ?, ?, ?)");
+        $stmt->bind_param("iiis", $id_peca, $id_cliente, $quantidade, $data);
         $stmt->execute();
 
-        // Descontar estoque
         $update = $conn->prepare("UPDATE pecas SET quantidade = quantidade - ? WHERE id_peca = ?");
         $update->bind_param("ii", $quantidade, $id_peca);
         $update->execute();
@@ -48,7 +46,7 @@ $clientes = $conn->query("SELECT * FROM clientes");
 <title>Registrar Venda</title>
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
+    <body class="admin-page">
 
 <header>Registrar Venda</header>
 
