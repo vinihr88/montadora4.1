@@ -5,16 +5,55 @@
 }
 
 body {
-    background: #000;
     font-family: 'Segoe UI', Arial, sans-serif;
     color: #fff;
 }
 
-header {
+/* --- TELA DE LOGIN E CADASTRO --- */
+.login-page {
+     background: 
+    linear-gradient(rgba(0,0,0,0.75), rgba(15,15,15,0.85));
+    background-image: url('fundo.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.login-panel {
+    background: rgba(17, 17, 17, 0.85);
+    padding: 50px;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 153, 0, 0.3);
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    backdrop-filter: blur(10px); 
+}
+
+.login-panel h2 {
+    margin-bottom: 25px;
+    color: #86ffef;
+}
+
+/* --- OUTRAS TELAS DE ADMINISTRAÇÃO --- */
+.admin-page {
+    background: linear-gradient(to bottom, #0f172a, #0f172a, #0f172a);
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+.admin-page header {
     padding: 25px 40px;
     font-size: 28px;
     font-weight: bold;
-    color: #ff9900;
+    color: #0daac5;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
 }
 
 .container {
@@ -24,7 +63,7 @@ header {
     background: #111;
     padding: 50px;
     border-radius: 18px;
-    box-shadow: 0 0 40px rgba(255, 153, 0, 0.4);
+    box-shadow: 0 0 30px rgba(255, 153, 0, 0.2); 
 }
 
 table {
@@ -35,7 +74,7 @@ table {
 
 th {
     background: #1c1c1c;
-    color: #ff9900;
+    color: #0daac5;
     padding: 18px;
     text-align: left;
     font-size: 18px;
@@ -55,7 +94,8 @@ tr:hover {
 
 input[type="password"],
 input[type="text"],
-input[type="number"] {
+input[type="number"],
+input[type="email"] {
     padding: 10px 12px;
     border-radius: 10px;
     border: 1px solid #333;
@@ -64,14 +104,16 @@ input[type="number"] {
     margin-right: 10px;
     outline: none;
     transition: 0.3s;
+    width: calc(100% - 20px);
+    margin-bottom: 15px;
 }
 
 input:focus {
-    border-color: #ff9900;
+    border-color: #0daac5;
 }
 
 button {
-    background: #ff9900;
+    background: #0daac5;
     color: #000;
     border: none;
     padding: 10px 20px;
@@ -80,46 +122,44 @@ button {
     font-weight: bold;
     font-size: 15px;
     transition: 0.3s;
+    width: 100%;
 }
 
 button:hover {
-    background: #ffaa22;
+    background: #abfff4;
     transform: scale(1.05);
 }
 
 a {
     display: inline-block;
     margin-top: 25px;
-    color: #ff9900;
+    color: #0daac5;
     font-weight: bold;
     text-decoration: none;
     transition: 0.3s;
 }
 
 a:hover {
-    color: #ffaa22;
+    color: #abfff4;
 }
 
-form {
+.form-unificado {
     display: flex;
     align-items: center;
     gap: 10px;
+    flex-wrap: wrap;
+}
+
+.form-unificado input {
+    width: auto;
+    margin-bottom: 0;
 }
 
 @media (max-width: 900px) {
-    .container {
-        padding: 25px;
-    }
-
-    table {
-        font-size: 14px;
-    }
-
-    th, td {
-        padding: 10px;
-    }
-
-    form {
+    .container { padding: 25px; }
+    table { font-size: 14px; }
+    th, td { padding: 10px; }
+    .form-unificado {
         flex-direction: column;
         align-items: flex-start;
     }
