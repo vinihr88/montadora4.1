@@ -48,6 +48,8 @@ CREATE TABLE IF NOT EXISTS clientes (
     telefone VARCHAR(20) NOT NULL
 );
 
+INSERT INTO usuarios (usuario, senha)
+VALUES ('admin', 'montadora2026');
 
 INSERT IGNORE INTO pecas (nome, descricao, preco, preco_custo, quantidade) VALUES 
 ('Filtro de Cabine BYD Song Plus', 'Filtro de ar-condicionado', 120.00, 45.00, 10),
